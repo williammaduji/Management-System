@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daily Order</title>
+      {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/customers.css' %}">
+</head>
+<body>
+<div class="main">
+    <div class="main-2">
+      <img src="{% static 'images/logo.png' %}" alt="Celeen Foods">
+        <h3>Navigation</h3>
+        <h3>Home</h3>
+      <h3>Dashboard</h3>
+    </div>
+    <div>
+
+    </div>
+
+
+<div class="main-3">
+     <a href="{% url 'daily_supply' %}"><h2>Create Daily Supply</h2></a>
+    <h3>Total Goods Ordered:</h3><h3>{{total_supplies}}</h3>
+  <table>
+        <thead>
+            <tr>
+                <td>CUSTOMER</td>
+                <td>CAMEROON PEPPER</td>
+                <td>CRAYFISH</td>
+                <td>RED PEPPER</td>
+                <td>DATE</td>
+                <td>MONEY RECEIVED</td>
+            </tr>
+            <tr>
+                <td><h4></h4></td>
+                <td><h4></h4></td>
+                <td><h4></h4></td>
+            </tr>
+        </thead>
+    <tbody>
+            <tr>
+              <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+    </tbody>
+  </table>
+
+</div>
+</div>
+</body>
+
+</html>

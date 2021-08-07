@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customers Page</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/customers.css' %}">
+</head>
+<body>
+  <div class="main">
+    <div class="main-2">
+      <img src="{% static 'images/logo.png' %}" alt="Celeen Foods">
+      <h3>Navigation</h3>
+      <h3>Home</h3>
+      <h3>Dashboard</h3>
+      <h3>Orders</h3>
+    </div>
+      {{tot}}
+    <div class="main-3">
+      <a href="#"><h3>Total Customers:</h3></a>
+        <a href="#"><h3>{{total_customers}}</h3></a>
+      <a href="#"><h2>New Customer</h2></a>
+
+      <table>
+          <thead>
+
+              <tr>
+                  <td>DATE</td>
+                  <td>CRAYFISH</td>
+                  <td>CAMEROON PEPPER</td>
+                  <td>RED PEPPER</td>
+                  <td>DEBT(Debit)</td>
+                  <td>PAID(Credit)</td>
+                  <td>BALANCE</td>
+              </tr>
+          </thead>
+          <tbody>
+          <form action="" method="POST">
+              {% csrf_token %}
+               <tr>
+                  <td>{{products.date_created}}</td>
+                  <td>{{p.product}}</td>
+                  <td>{{calculation.product}}</td>
+                  <td>{{calculation.product}}</td>
+                  <td>{{transact.debit}}</td>
+                  <td>{{transact.paid}}</td>
+                  <td>{{transact.total_balance}}</td>
+                </tr>
+              <input type="submit">
+          </form>
+          </tbody>
+      </table>
+        <br>
+        <table>
+          <thead>
+
+              <tr>
+                  <td>DATE</td>
+                  <td>CRAYFISH</td>
+                  <td>CAMEROON PEPPER</td>
+                  <td>RED PEPPER</td>
+                  <td>DEBT(Debit)</td>
+                  <td>PAID(Credit)</td>
+                  <td>BALANCE</td>
+              </tr>
+          </thead>
+          <tbody>
+          <form action="" method="POST">
+              {% csrf_token %}
+              {% for t in transact %}
+               <tr>
+                  <td>{{products.date_created}}</td>
+                  <td>{{products.product}}</td>
+                  <td>{{products.product}}</td>
+                  <td>{{products.product}}</td>
+                  <td>{{t.debit}}</td>
+                  <td>{{t.paid}}</td>
+                  <td>{{t.total_balance}}</td>
+                </tr>
+              {% endfor %}
+              <input type="submit">
+          </form>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Total</title>
+      {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static '/css/total_goods.css' %}">
+</head>
+<body>
+<div class="main">
+    <div class="main-2">
+      <img src="{% static 'images/logo.png' %}" alt="Celeen Foods">
+        <h3>Navigation</h3>
+        <h3>Home</h3>
+      <h3>Dashboard</h3>
+    </div>
+    <div>
+
+    </div>
+
+
+<div class="main-3">
+     <a href="{% url 'daily_supply' %}"><h2>Create Daily Supply</h2></a>
+    <h3>Total Goods Supplied:</h3><h3>{{total_supplies}}</h3>
+  <table>
+        <thead>
+            <tr>
+                <th>CAMEROON PEPPER</th>
+                <th>CRAYFISH</th>
+                <th>RED PEPPER</th>
+                <th>DATE</th>
+            </tr>
+            <tr>
+                <td><h4>{{total1}}</h4></td>
+                <td><h4>{{total2}}</h4></td>
+                <td><h4>{{total}}</h4></td>
+            </tr>
+        </thead>
+    <tbody>
+         {% for item1, item2, item3, item4 in product %}
+            <tr>
+              <td>{{item1.quantity}}</td>
+                <td>{{item3.quantity}}</td>
+                <td>{{item2.quantity}}</td>
+                <td>{{item4.date}}</td>
+            </tr>
+         {% endfor %}
+    </tbody>
+  </table>
+
+</div>
+</div>
+</body>
+
+</html>

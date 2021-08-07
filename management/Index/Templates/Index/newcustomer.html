@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+     {% load static %}
+    <meta charset="utf-8">
+    <title>New Customer Registration</title>
+     <link rel="stylesheet" type="text/css" href="{% static 'CSS/newcustomer.css' %}">
+  </head>
+  <body>
+
+        <form class="" action="" method="post">
+          {% csrf_token %}
+          <label for="fname">First name:</label><br>
+            {{customer.name}}<br>
+          <label for="numb">Phone Number:</label><br>
+            {{customer.phone_number}}<br>
+          <label for="numb">Email:</label><br>
+            {{customer.email}}<br>
+          <label for="date">Date:</label><br>
+            {{customer.date_created}}<br>
+          <button class='button'>Submit</button>
+        </form>
+
+
+  </body>
+</html>

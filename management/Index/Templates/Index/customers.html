@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Customers Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'CSS/customers.css' %}">
+</head>
+<body>
+  <div class="main">
+    <div class="main-2">
+      <img src="{% static 'Images/logo.png' %}" alt="Celeen Foods">
+      <h3>Navigation</h3>
+      <h3>Home</h3>
+      <h3>Dashboard</h3>
+      <h3>Orders</h3>
+    </div>
+    <div class="main-3">
+      <div class="col-container">
+        <div class="col-2">
+            <h3>Total Customers</h3>
+            <h3>{{total_customers}}</h3>
+        </div>
+        <div class="col-3">
+          <a href="#"><h3>Create New Customer</h3></a>
+            <form class="c_form" action="" method="post">
+                {% csrf_token %}
+              <label for="fname">Name:</label>
+              <input type="text"></input>
+              <label for="numb">Phone Number:</label>
+              <input type="text"></input>
+              <label for="numb">Email:</label>
+              <input type="email"></input>
+              <label for="date">Date:</label>
+              <input type="date"></input>
+              <input type="submit"></input>
+            </form>
+        </div>
+      </div>
+      <table>
+          <thead>
+              <tr>
+                  <th>NAME</th>
+                  <th>PHONE NUMBER</th>
+                  <th>EMAIL ADDRESS</th>
+                  <th>DATE CREATED</th>
+              </tr>
+          </thead>
+          <tbody>
+                {% for c in customer %}
+              <tr>
+                  <td><a href="https://www.google.com/"><h5>{{c.name}}</h5></a></td>
+                  <td><h5>{{c.phone_number}}</h5></td>
+                  <td><h5>{{c.email}}</h5></td>
+                  <td><h5>{{c.date_created}}</h5></td>
+              </tr>
+                {% endfor %}
+          </tbody>
+      </table>
+    </div>
+  </div>
+</body>
+</html>
