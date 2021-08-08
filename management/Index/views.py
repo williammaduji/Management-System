@@ -36,6 +36,17 @@ def create_customer(request):
     return render(request, 'Index/newcustomer.html', context)
 
 
+def product(request):
+    products = ProductForm
+    if request.method == "POST":
+        products = ProductForm(request.POST)
+        if products.is_valid():
+            products.save()
+    items = products
+    context = {'items': items}
+    return render(request, 'Index/product.html', context)
+
+
 def dashboard(request):
     transact = Transactions
     if request.method == "POST":

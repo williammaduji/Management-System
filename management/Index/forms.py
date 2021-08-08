@@ -13,6 +13,12 @@ class CustomerForm(ModelForm):
         fields = ['name', 'phone_number', 'date_created', 'email']
 
 
+class ProductForm(ModelForm):
+    class Meta:
+        model = Product
+        fields = ['name']
+
+
 class Transactions(ModelForm):
     class Meta:
         model = Transaction
